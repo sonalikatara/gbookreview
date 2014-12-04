@@ -1,0 +1,21 @@
+<% r1 = @reviews.first %>
+<p>
+   <b> Title : </b> <%= r1.title %>
+</p>
+<p>
+   <b> Author : </b> <%= r1.author %>
+</p>
+<p>
+   <img src="<%= r1.picture %>"/>
+</p>
+
+
+<% @reviews.each do |r| %>
+<p>
+   <b> Reader : </b> <%= link_to r.reader, show_reader_path(:reader => r.reader)%> 
+
+   <br><b> Review : </b> <%=  render 'reviews/shared_files/display_review_rating', rating: r.rating %>
+   <br> <%= r.comment %>
+</p>
+<% end %>
+

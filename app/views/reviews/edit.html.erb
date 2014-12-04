@@ -1,0 +1,47 @@
+
+<h1>Editing : <%= @review.title %></h1>
+
+<%= form_for @review, :url=>{:action=>'update'} do |f|%>
+  
+  <% if @review.errors.any? %>
+    <div class="field_with_errors">
+      
+        The form contains <%= pluralize(@review.errors.count, "error") %>.
+       <ul>
+      <% @review.errors.full_messages.each do |msg| %>
+        <li> <%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<div align="center">
+  <p>
+    <%= f.label :reader %>
+    <%= f.text_field :reader  %>
+  </p> 
+  <p>
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+  </p>
+  <p>
+    <%= f.label :author %>
+    <%= f.text_field :author %>
+  </p>
+  <p>
+    <%= f.label :picture %>
+    <%= f.text_field :picture %>
+  </p>
+  <p>
+   <!-- <%= f.label :rating %> <%= f.text_field :rating %> -->
+     <%=  render 'reviews/shared_files/review_ratings', f: f %>  </p>
+  <p>
+    <%= f.label :comment %><br>
+    <%= f.text_area :comment, size: "60x12" %>
+  </p>
+  <p>
+    <%= f.submit "Update" %>
+  </p>
+</div>
+<% end %>
+

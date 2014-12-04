@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: Programming Ruby
+  author: Sam Ruby
+  picture: MyString
+  rating: 3
+  comment: Ruby is the fastest growing and most exciting language out there.
+  reader: Sona
+
+two:
+  title: MyText
+  author: MyString
+  picture: MyString
+  rating: MyString
+  comment: MyText
+  reader: MyString

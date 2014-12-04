@@ -1,0 +1,17 @@
+<% r1 = @reviews.first %>
+<p>  <b> Reader : </b>  <%= r1.reader %> </p>
+
+
+<% @reviews.each do |r| %>
+<p>
+   <b> Title : </b> <%= r.title %>
+<br>
+   <b> Author : </b>  <%= link_to r.author, show_author_path(:author => r.author)%> 
+<br>
+    <%= link_to image_tag(r.picture, :alt=> r.title, :width =>80,:height =>100), show_book_path(:title => r.title)%> 
+<br>
+  <b> Review : </b> Rating:<%=r.rating%>
+   <br> <%= r.comment %>
+</p>
+<% end %>
+

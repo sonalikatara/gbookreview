@@ -1,0 +1,9 @@
+<% r1 = @reviews.first %>
+<h1>  <b> List of books read by </b>  <%= r1.reader %> </h1>
+
+
+<% @reviews.each do |review| %> 
+<%= render 'reviews/shared_files/display_review', :review => review  %>
+<hr>
+<% end %>
+

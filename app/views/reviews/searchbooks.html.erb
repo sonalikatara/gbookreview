@@ -1,0 +1,12 @@
+<h1>Books Read by US</h1>
+
+ <table id="showBooks">
+  <% @reviews.in_groups_of(6,false) do |rgroup| %>
+  <tr>
+      <% rgroup.each do |r| %>
+        <td > <%= link_to image_tag(r.picture, :alt=> r.title,:width =>80,:height =>100), show_book_path(:title => r.title)%>  </td>
+      <% end %>
+  </tr>
+ <% end %>
+ </table>
+

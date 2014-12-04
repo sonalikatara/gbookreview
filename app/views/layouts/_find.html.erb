@@ -1,0 +1,6 @@
+<span style="text-align:right">
+<%= form_tag(reviews_path, :method=>"get") do %>
+<%= text_field_tag :search_string %>
+<%= submit_tag "Search", :name =>nil %>
+<% end %>
+</span>

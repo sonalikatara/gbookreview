@@ -1,0 +1,13 @@
+<!-- This partial gets review ratings for a form named f -->
+<div get_review_ratings>
+<table style= "width:35%; font-size:.5em;">
+   <tr>
+    <td>     <%= f.label :rating %>    </td>
+    <td>     <%= f.radio_button :rating, 1  %> <%= image_tag("1.png", alt: "Not Good") %>    </td>
+    <td>     <%= f.radio_button :rating, 2 %> <%= image_tag("2.png", alt: "Loved it") %>     </td>
+    <td>     <%= f.radio_button :rating, 3 %> <%= image_tag("3.png", alt: "Got to Read") %> </td>
+   </tr>
+   <tr> <td> </td><td>Not Good</td><td>Loved it</td><td>Got to Read!</td></tr>
+  </table>
+</div>
+
