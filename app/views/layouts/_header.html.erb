@@ -7,7 +7,15 @@
 <!--    <li> <a href= <%= search_books_path %>>Books</a> </li> -->
  <!--   <li> <%= link_to "Books", :controller => "reviews", :action => "searchbooks"%></li> -->
    </ul>
- 
+   <ul>
+    <% if admin_logged_in? %>
+      <li> <%= link_to "Group", current_admin %></li>
+      <li> <%= link_to "Settings", '#' %> </li>
+       <li> <%= link_to "Log out", admin_logout_path, method: "delete" %> </li>
+    <% else %>
+        <li> <%= link_to "Log in", admin_login_path %></li>
+    <% end %>
+   </ul>
   <small>
    <%= render "layouts/find" %>
  </small>

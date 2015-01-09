@@ -1,4 +1,9 @@
 Gbookreview::Application.routes.draw do
+  get "admin/index" => 'admin#index', :as => 'admin'
+  get "sessions/new" => 'sessions#new', :as => 'admin_login'
+  post "sessions/new" => 'sessions#create' 
+  get "sessions/create"
+  delete "sessions/destroy" => 'sessions#destroy', :as => 'admin_logout'
  # resources :reviews
 
  # root 'welcome#index'
@@ -20,6 +25,13 @@ Gbookreview::Application.routes.draw do
 
   get '/contact_us' => 'static_pages#contact_us'
   get '/about' => 'static_pages#about'
+
+  get '/groups/new' => 'groups#new' , :as => 'new_group'
+  post '/groups' => 'groups#create'
+   get '/groups/:id' => 'groups#show', constraints: {id: /\d+/} , :as => 'group'
+  
+
+  get '/groups' => 'groups#allgroups' , :as => 'all_groups'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

@@ -15,8 +15,8 @@ class ReviewsController < ApplicationController
   end
   
 
-  def create # creates a new review rcord
-    puts review_params
+  def create # creates a new review record
+  #  puts review_params
     @review = Review.new(review_params)
    
    if @review.save

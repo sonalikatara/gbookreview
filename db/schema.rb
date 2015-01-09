@@ -11,7 +11,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140925200649) do
+ActiveRecord::Schema.define(version: 20141219062800) do
+
+  create_table "groups", force: true do |t|
+    t.string   "groupName"
+    t.string   "picture"
+    t.string   "email"
+    t.string   "description"
+    t.string   "password_digest"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "groupPassword"
+  end
+
+  create_table "readers", force: true do |t|
+    t.string   "readerName"
+    t.string   "picture"
+    t.string   "email"
+    t.integer  "group_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "reviews", force: true do |t|
     t.text     "title"
