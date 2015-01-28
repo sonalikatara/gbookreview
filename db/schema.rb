@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141219062800) do
+ActiveRecord::Schema.define(version: 20150123213206) do
 
   create_table "groups", force: true do |t|
     t.string   "groupName"
@@ -39,9 +39,11 @@ ActiveRecord::Schema.define(version: 20141219062800) do
     t.string   "picture"
     t.string   "rating"
     t.text     "comment"
-    t.string   "reader"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "reader_id"
   end
+
+  add_index "reviews", ["reader_id"], name: "index_reviews_on_reader_id"
 
 end

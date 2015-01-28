@@ -1,12 +1,12 @@
 
-<h1>New Review</h1>
+
+<h2>Welcome <%= @reader.readerName %>, <br><br>
+Write a review to tell your friends what you think after reading the book.</h2>
 <div align="center">
 <%= form_for @review,:url=>{:action=>'create'} do |f|%>
 <% if @review.errors.any? %>
-  <div class="field_with_errors">
-    
-      The form contains <%= pluralize(@review.errors.count, "error") %>.
-   
+  <div class="field_with_errors">    
+      The form contains <%= pluralize(@review.errors.count, "error") %>.   
     <ul>
     <% @review.errors.full_messages.each do |msg| %>
       <li> <%= msg %></li>
@@ -15,30 +15,23 @@
   </div>
 <% end %>
   <p>
-    <%= f.label :reader %>
-    <%= f.text_field :reader %>
-  </p>
-  <p>
-    <%= f.label :title %>
+    <%= f.label :title  %>
     <%= f.text_field :title %>
   </p>
-  <p>
     <%= f.label :author %>
     <%= f.text_field :author %>
-  </p>
  <p>
     <%= f.label :picture %>
     <%= f.text_field :picture %>
   </p>
-  <p> <!-- <%= f.select :rating, [['Not Good',1],['Loved it',2],['Got to Read',3]] %> -->
+   <!-- <%= f.select :rating, [['Not Good',1],['Loved it',2],['Got to Read',3]] %> -->
   <%= render 'reviews/shared_files/review_ratings', f: f %> 
-  </p>
-  <p>
+   <p>
     <%= f.label :comment %><br>
     <%= f.text_area :comment , size: "100x15"%>
   </p>
-  <p>
-    <%= f.submit %>
-  </p>
+      <%= f.submit %>  
 <% end %>
+<br>
+( Examples of Review: I like this book because.../ I don't like this book because.../ This book is about..../ I wish the ending was different because..../ If I were the main character, I would....)
 </div>

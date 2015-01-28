@@ -23,4 +23,14 @@ class Group < ActiveRecord::Base
    validates_confirmation_of :groupPassword, :email
    validates_presence_of :groupPassword_confirmation, :email_confirmation
 
+   def self.authenticateReader(group, groupPassword)
+     #group = Group.where(groupName: groupName).first
+     chk_group = Group.find(group)
+     if  chk_group && chk_group.groupPassword == groupPassword
+       chk_group
+     else
+       nil
+     end  
+   end
+
 end

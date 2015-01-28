@@ -2,14 +2,17 @@
 <div align="center">
 <table class='list_table'>
  <tr>
-     <th> Reader </th>
+     <th width=15%> Reader </th>
      <th> Image </th>
      <th> Review </th>
      <th></th>
  </tr>
 <% @reviews.each do |r| %>
   <tr>
-    <td> <%= r.reader %> </td>
+    <td > <% if r.reader %>
+               <%= link_to r.reader.readerName, show_reader_path(:reader_id =>r.reader)%> 
+          <% end %>
+    </td>
     <td align=center> <%= link_to image_tag(r.picture, :alt=> r.title, class: 'list_image'),r %> </td>
     <td class='list_description'>
         <dl>
@@ -19,9 +22,10 @@
         </dl>
     </td>
      <td class='list_action'> <%= link_to 'Show', r %> <br/>
-         <%= link_to 'Edit', edit_review_path(r) %> <br/>
-         <%= link_to 'Delete', r, method: :delete, data: {confirm: "You Sure ?"}  %>
-         
+        <% if r.reader == @reader  %>
+           <%= link_to 'Edit', edit_review_path(r) %> <br/>
+           <%= link_to 'Delete', r, method: :delete, data: {confirm: "You Sure ?"}  %>
+        <% end %> 
      </td>
   </tr>
 <% end %>

@@ -1,0 +1,40 @@
+<h2> <%= @group.groupName %></h2>
+<h2>Update reader information <h2>
+<%= form_for @reader, :url=>{:action=>'update'} do |f| %>
+<% if @reader.errors.any? %>
+<div class='field_with_errors'>
+   <ul>
+     <% @reader.errors.full_messages.each do |msg| %>
+      <li> <%= msg %></li>
+     <% end %>
+   </ul>
+</div>
+<% end %>
+
+<table>
+<tr><td>
+       <%=  f.label :readerName, "Reader Name" %>
+	</td><td>
+        <%= f.text_field :readerName%>
+</td></tr>
+<tr><td>
+       <%=  f.label :picture%>
+     </td><td>
+        <%= f.text_field :picture %>
+</td></tr>
+<tr><td>
+       <%=  f.label :email %>
+     </td><td>
+        <%= f.text_field :email %>
+</td></tr>
+<tr><td>
+     <%= f.label :email_confirmation , "Email Confirmation" %>
+    </td><td>
+       <%= f.text_field :email_confirmation %>
+</td></tr> 
+<tr><td colspan=2 align="right">
+     <%= f.submit "Save Changes" %>
+</td></tr>
+</table>
+<% end %>
+

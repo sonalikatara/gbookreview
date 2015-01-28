@@ -1,26 +1,33 @@
 
 class ReviewsController < ApplicationController
-  
+ before_action :logged_in_reader, only: [:create, :destroy]
+
+
  def index
     if (params[:search_string])
       @reviews = search_review(params[:search_string])
     else
       @reviews = Review.all
     end
+    if reader_logged_in?
+      @reader = current_reader
+    end
   end
 
 
   def new
-   @review = Review.new
+    @reader = current_reader
+    @review = current_reader.review.build 
   end
   
 
   def create # creates a new review record
   #  puts review_params
-    @review = Review.new(review_params)
-   
+   #@review = Review.new(review_params)
+     @reader= current_reader
+     @review = current_reader.review.build(review_params)
    if @review.save
-    redirect_to reviews_path, notice: 'Review Saved. Thank You for sharing your Review!!'
+     redirect_to show_reader_path @reader, notice: 'Review Saved. Thank You for sharing your Review!!'
    else
     render action: "new" 
    end
@@ -38,8 +45,9 @@ class ReviewsController < ApplicationController
   end
 
   def showreader # show a reader and all the reviews written 
-    search_reader = params[:reader]
-    @reviews = Review.find(:all, :conditions => ["reader = ? ", "#{search_reader}"])
+    search_reader = params[:reader_id]
+    @reader = Reader.find(search_reader)
+    @reviews = Review.find(:all, :conditions => ["reader_id = ? ", "#{search_reader}"])
   end
 
   def showauthor # shows a author and list of reviews on his/her books
@@ -60,10 +68,11 @@ class ReviewsController < ApplicationController
 
   
   def update #updates a review
+    @reader = current_reader
     @review = Review.find(params[:id])
     
     if  @review.update(review_params) 
-      redirect_to reviews_path, notice: 'Your review is now updated. '
+      redirect_to show_reader_path @reader, notice: 'Your review is now updated. '
     else
       render 'edit'
     end
@@ -95,11 +104,11 @@ class ReviewsController < ApplicationController
 
   private
   def review_params
-     params.require(:review).permit(:reader, :title, :author, :picture, :rating,:comment)
+     params.require(:review).permit( :title, :author, :picture, :rating,:comment)
   end
 
   def search_review(query)   #searches the records for a query
-       Review.find(:all, :conditions => ["reader like ? OR title like ? OR author like ?","%#{query}%","%#{query}%", "%#{query}%"])
+       Review.find(:all, :conditions => ["title like ? OR author like ?","%#{query}%", "%#{query}%"])
   end
 
 

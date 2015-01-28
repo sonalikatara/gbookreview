@@ -7,27 +7,38 @@ end
 def create
    @group = Group.new(group_params)
 
-  # if @group.groupPassword.blank ?
-  #    @group.groupPassword:  @group.password # password being the admin password
-  # end
-
-   if @group.save
+    if @group.save
        # send the admin and group a welcome email
-      log_in_group__admin(@group)
+      log_in_group_admin(@group)
       redirect_to @group, alert: "Group #{@group.groupName} was sucessfully created."
    else
       render 'new'  
    end
 end
 
+
 def show
-   @group = current_admin_group
+   session[:group_id] = params[:group_id]
+   @group = current_admin_group || current_group
+   @readers = @group.reader.all
 end
 
+def myGroup
+end
+
+def showmygroup
+     if @group=Group.find_by(groupName: params[:groupName] )
+       redirect_to @group
+     else
+       redirect_to my_group_path , alert: "Group not Found. Check your spelling and casses."
+    end
+end
 
 def allgroups
   @groups = Group.all.order('created_at DESC')
 end
+
+
 private
  
 def group_params

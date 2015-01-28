@@ -1,0 +1,16 @@
+<h1><%= @group.groupName %></h1>
+<h2>Readers Login</h2>
+<%= form_tag do %>
+<div>
+    <%=@reader.readerName %>
+</div>
+<div>
+<%= label_tag :groupPassword, 'Group Password:' %>
+<%= password_field_tag :groupPassword, params[:groupPassword] %>
+</div>
+<div>
+ <%= submit_tag "Take me to my Group Reviews" %>
+</div>
+<% end %>
+
+

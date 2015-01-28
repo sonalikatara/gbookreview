@@ -1,0 +1,18 @@
+<div>
+<%= form_tag do %>
+<p>
+   <%= label_tag :groupName, 'Group Name' %>
+<br>
+   <%= text_field_tag :groupName, params[:groupName] %>
+</p>
+<p>
+   <%= submit_tag 'Show me my Group' %>
+</p>
+<% end %>
+</div>
+<div><br>
+<p>
+New Group ? <%= link_to "Create a New Group Now !" , '/groups/new' %>
+</p>
+</div>
+

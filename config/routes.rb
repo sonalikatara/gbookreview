@@ -1,19 +1,21 @@
 Gbookreview::Application.routes.draw do
-  get "admin/index" => 'admin#index', :as => 'admin'
+  get "admin/index" => 'admin#index', :as => 'admin_home'
   get "sessions/new" => 'sessions#new', :as => 'admin_login'
+  get "sessions/newReader/:reader_id" => 'sessions#newReader', constraints: {reader_id: /\d+/} , :as => 'reader_login'
+  post "sessions/newReader/:reader_id" => 'sessions#createReaderGroup'
   post "sessions/new" => 'sessions#create' 
   get "sessions/create"
   delete "sessions/destroy" => 'sessions#destroy', :as => 'admin_logout'
+  delete "sessions/destroyReader" => 'sessions#destroyReader', :as => 'reader_logout'
  # resources :reviews
 
- # root 'welcome#index'
-  root 'reviews#searchbooks'
+  root 'welcome#index'
+ # root 'reviews#searchbooks'
  
   get '/reviews/searchbooks' => 'reviews#searchbooks', :as => 'search_books'
   get '/reviews/showbook/:title' => 'reviews#showbook', :as => 'show_book'
-  get '/reviews/showreader/:reader' => 'reviews#showreader', :as => 'show_reader'
+  get '/reviews/showreader/:reader_id' => 'reviews#showreader', :as => 'show_reader'
   get '/reviews/showauthor/:author' => 'reviews#showauthor', :as => 'show_author'
-
   get '/reviews'=> 'reviews#index' , :as => 'reviews'
   post '/reviews' => 'reviews#create'
   get '/reviews/new' => 'reviews#new' , :as => 'new_review'
@@ -28,10 +30,16 @@ Gbookreview::Application.routes.draw do
 
   get '/groups/new' => 'groups#new' , :as => 'new_group'
   post '/groups' => 'groups#create'
-   get '/groups/:id' => 'groups#show', constraints: {id: /\d+/} , :as => 'group'
+   get '/groups/:group_id' => 'groups#show', constraints: {group_id: /\d+/} , :as => 'group'
+   get '/groups' => 'groups#allgroups' , :as => 'all_groups'
+   get '/groups/mygroup' => 'groups#mygroup', :as => 'my_group'
+   post '/groups/mygroup' => 'groups#showmygroup'
+   
+  get '/readers/new' => 'readers#new', :as => 'new_reader'
+  post '/readers' => 'readers#create'
+  get '/reader/:id/edit' => 'readers#edit', :as => 'edit_reader'
+  patch '/reader/:id' => 'readers#update'
   
-
-  get '/groups' => 'groups#allgroups' , :as => 'all_groups'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

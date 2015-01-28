@@ -1,8 +1,7 @@
-<h1>Admin Login</h1>
-<!-- if flash[:alert] %>
- <p id="notice" > flash[:alert] %></p>
- end %>
--->
+<h1>Readers Login</h1>
+<% if flash[:alert] %>
+ <p id="notice" ><%= flash[:alert] %></p>
+<% end %>
 <%= form_tag do %>
 <div>
 <%= label_tag :email, 'Email:' %>
@@ -15,8 +14,6 @@
 <div>
  <%= submit_tag "Login" %>
 </div>
-<div>
-New Group ? <%= link_to "Create a New Group Now !" , '/groups/new' %>
-</div>
 <% end %>
+
 

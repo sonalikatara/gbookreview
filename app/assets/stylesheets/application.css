@@ -43,3 +43,6 @@ div#content p { margin: 0; padding: 4px 6px 10px 0; }
 div#clearfooter { height: 110px; }
 
 div#footer { background: url('/images/bgFooter.png'); height: 110px; margin: -110px auto 0 auto; }
+ul#list {padding: 5px;}
+li#list_description {color#224;background: #e0f8f8; width: 60%;}
+li#list_action span {text-allign: right; width: 40%;}

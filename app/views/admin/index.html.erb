@@ -1,2 +1,9 @@
-<h1>Admin#index</h1>
-<p>Find me in app/views/admin/index.html.erb</p>
+<h1>Admin</h1>
+<p> <%= render 'groups/group', group: @group %>
+</p>
+<h2> Readers in this group </h2>
+<div >
+  <%= render 'readers/shared_files/display_all_readers', reader: @readers %>
+
+</div>
+

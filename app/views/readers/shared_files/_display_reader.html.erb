@@ -1,0 +1,12 @@
+<li class= 'list_description' >
+   <img src = "<%= reader.picture %>" />
+  <% if admin_logged_in? %>
+       <%= link_to reader.readerName , show_reader_path(:reader_id =>reader.id)%> 
+       <%= reader.email %>
+       <span class='list_actions'> <%= link_to "Update", edit_reader_path(reader) %>
+           <%= link_to "Delete",'#' %> <!-- user, method: :delete, data: {confirm: "You sure?"} %> -->
+       </span>
+  <% else %>
+        <%= link_to reader.readerName , reader_login_path(:reader_id =>reader.id)%> 
+ <% end %>
+</li>

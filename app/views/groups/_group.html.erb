@@ -1,11 +1,9 @@
-<li>
-  <%= group.groupName %> Created on: <%= group.created_at %>
-  <br>
-  <%= group.description %>
-  <br>
-  <%= group.picture %>
-  <br>
-  Email:  <%= group.email %>  Password: <%= group.password %>  
-  <br>
-  Group Password: <%= group.groupPassword %>
-</li>
+<p>
+    <%= group.picture %>
+  <br>Created  <%= time_ago_in_words(group.created_at) %> ago.
+  <br><b>About Us </b> 
+  <br><%= group.description %>
+  <br>Admin Email:  <%= group.email %> 
+  <br>Password: <%= group.password %>  
+  <br>Group Password: <%= group.groupPassword %>
+</p>
