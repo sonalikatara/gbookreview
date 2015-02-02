@@ -11,6 +11,7 @@ def create
        # send the admin and group a welcome email
       log_in_group_admin(@group)
       redirect_to @group, alert: "Group #{@group.groupName} was sucessfully created."
+      GroupRequestMail.invited(@group).deliver
    else
       render 'new'  
    end
@@ -24,6 +25,7 @@ def show
 end
 
 def myGroup
+    @group = Group.new
 end
 
 def showmygroup
@@ -38,6 +40,24 @@ def allgroups
   @groups = Group.all.order('created_at DESC')
 end
 
+# sending group request from a new Admin
+def startgroup
+  @group = Group.new
+end
+
+def mailstartgrouprequest
+   @group = Group.new(group_params)
+
+   # to add:: check for errors in Group form
+
+   if (@group)
+       GroupRequestMail.received(@group).deliver
+       redirect_to root_path, alert: " Your request is sent to the Admin. You will recieve a welcome email from us soon."
+   else
+       render 'new'
+   end 
+
+end
 
 private
  

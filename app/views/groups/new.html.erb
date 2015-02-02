@@ -1,5 +1,5 @@
-<h1> Welcome !!  </h1>
-This form will help you create a New Group. After you have created a Group you can invite your frieds to join. Have fun reading and spreading the joy :)<br>
+<h1> Welcome site Admin !!  </h1>
+This form will help you create a New Group. After you have created a Group an email will be sent to the Group Admin Congratulating him/her on the creation of the Group.<br>
 
 <%= form_for @group,:url=>{:action=>'create'} do |f| %>
 <% if @group.errors.any? %>
@@ -12,53 +12,6 @@ This form will help you create a New Group. After you have created a Group you c
     </ul>
   </div>
 <% end %>
-<table>
-<tr><td>
-       <%=  f.label :groupName, "Group Name" %>
-	</td><td>
-        <%= f.text_field :groupName%>
-</td></tr>
-<tr><td>
-       <%=  f.label :picture%>
-     </td><td>
-        <%= f.text_field :picture %>
-</td></tr>
-<tr><td>
-       <%=  f.label :description %>
-     </td><td>
-        <%= f.text_field :description, size: 80%>
-</td></tr>
-<tr><td>
-       <%=  f.label :email %>
-     </td><td>
-        <%= f.text_field :email %>
-</td></tr>
-<tr><td>
-     <%= f.label :email_confirmation , "Email Confirmation" %>
-    </td><td>
-       <%= f.text_field :email_confirmation %>
-</td></tr>
+  <%= render 'groups/get_group_details', f: f %> 
 
-<tr><td>
-     <%=  f.label :password %>
-     </td><td>
-        <%= f.password_field :password %>
-</td></tr>
-<tr><td>
-     <%= f.label :password_confirmation , "Confirm Password " %>
-    </td><td>
-       <%= f.password_field :password_confirmation %>
-</td></tr>
-<tr><td>
-    <%= f.label :groupPassword, "Choose a password for your Group :" %>
-    </td><td>
-     <%= f.password_field :groupPassword %>
-</td></tr>
-<tr><td>
-     <%= f.label :groupPassword_confirmation , "Confirm Group Password " %>
-    </td><td>
-       <%= f.password_field :groupPassword_confirmation %>
-</td></tr> 
-<tr><td colspan=2 align=right ><%= f.submit "Create my Group" %></td></tr>
-</table>
-  <% end %>
+<% end %>

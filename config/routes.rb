@@ -34,6 +34,8 @@ Gbookreview::Application.routes.draw do
    get '/groups' => 'groups#allgroups' , :as => 'all_groups'
    get '/groups/mygroup' => 'groups#mygroup', :as => 'my_group'
    post '/groups/mygroup' => 'groups#showmygroup'
+   get '/groups/startgroup' => 'groups#startgroup', :as => 'start_group'
+   post '/groups/startgroup' => 'groups#mailstartgrouprequest' 
    
   get '/readers/new' => 'readers#new', :as => 'new_reader'
   post '/readers' => 'readers#create'

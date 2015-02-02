@@ -12,6 +12,23 @@ Gbookreview::Application.configure do
   # Show full error reports and disable caching.
   config.consider_all_requests_local       = true
   config.action_controller.perform_caching = false
+ 
+# added by me
+config.action_mailer.perform_deliveries = true
+config.action_mailer.delivery_method = :smtp
+
+config.action_mailer.smtp_settings= {
+   address:        "smtp.gmail.com",
+   port:            587,
+   domain:         "domain.of.sender.net",
+   authentication: "plain",
+   user_name:      "gathertogether2read@gmail.com",
+   password:       "j@!m@s@r@sw@t!77",
+   enable_starttls_auto: true
+}
+
+
+# end added by me
 
   # Don't care if the mailer can't send.
   config.action_mailer.raise_delivery_errors = false

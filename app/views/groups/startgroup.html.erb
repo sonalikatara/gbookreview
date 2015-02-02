@@ -1,0 +1,17 @@
+
+<h1> Welcome !!  </h1>
+This form will help you create a New Group. An email will be sent to the Admin and you will recieve an email confirming your groups aproval.<br> After being aproved, your Group is ready to grow your Admin can invite your frieds to join.<br> Have fun reading and spreading the joy :)<br>
+
+<%= form_for @group, :url=>{action:'mailstartgrouprequest'} do |f|  %>
+    <% if @group.errors.any? %>
+      <div class="field_with_errors">
+           The form contains <%= pluralize(@group.errors.count, "error") %>.
+           <ul>
+            <% @group.errors.full_messages.each do |msg| %>
+                <li> <%= msg %></li>
+            <% end %>
+           </ul>
+       </div>
+     <% end %>
+  <%= render 'groups/get_group_details', f: f %> 
+<% end %>
