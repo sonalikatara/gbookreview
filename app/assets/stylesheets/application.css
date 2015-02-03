@@ -11,7 +11,7 @@
  *= require_self
  *= require_tree .
  *
-
+*/
 html, body { height: 100%; }
 
 body { background-color: #e6dacf; background-position: top center; background-repeat: repeat-y; font-family: "Trebuchet MS", Arial, san-serif; font-size: 14px; margin: 0; padding: 0; text-align: center; }
