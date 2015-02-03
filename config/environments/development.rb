@@ -20,7 +20,7 @@ config.action_mailer.delivery_method = :smtp
 config.action_mailer.smtp_settings= {
    address:        "smtp.gmail.com",
    port:            587,
-   domain:         "https://shrouded-chamber-4178.herokuapp.com/",
+  # domain:         "https://shrouded-chamber-4178.herokuapp.com/",
    authentication: "plain",
    user_name:      "gathertogether2read@gmail.com",
    password:       "j@!m@s@r@sw@t!77",
