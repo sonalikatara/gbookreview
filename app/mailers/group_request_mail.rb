@@ -1,5 +1,5 @@
 class GroupRequestMail < ActionMailer::Base
- # default from: "from@example.com"
+ default from: "gathertogether2read@gmail.com"
 
   # Subject can be set in your I18n file at config/locales/en.yml
   # with the following lookup:
