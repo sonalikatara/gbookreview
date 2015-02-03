@@ -8,8 +8,8 @@ class GroupRequestMail < ActionMailer::Base
   #
   def received(group)
     @group = group
-
-    mail to: "gathertogether2read@gmail.com", subject: "New Group Request"
+    @url = "https://shrouded-chamber-4178.herokuapp.com/"
+    mail to: "gathertogether2read@gmail.com", subject: "New Group Request"      
   end
 
   # Subject can be set in your I18n file at config/locales/en.yml
@@ -19,7 +19,7 @@ class GroupRequestMail < ActionMailer::Base
   #
   def invited(group)
     @group = group
-
+    @url = "https://shrouded-chamber-4178.herokuapp.com/"
     mail to: @group.email, subject: "Welcome to I Love to Read"    #later change it to @group.email
   end
 end
