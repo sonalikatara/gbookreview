@@ -1,7 +1,7 @@
 class Reader < ActiveRecord::Base
    before_save {self.email = email.downcase}
    belongs_to :group
-   has_many :review
+   has_many :review, dependent: :destroy
    validates :group_id, presence: true;   
    validates :readerName, presence: true,  uniqueness: { case_sensitive: false }, length: {maximum: 50}
 
