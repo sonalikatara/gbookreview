@@ -28,6 +28,9 @@ config.action_mailer.smtp_settings= {
    enable_starttls_auto: true
 }
 
+Paperclip.options[:command_path] = "/usr/local/bin/"
+
+config.serve_static_assets = true
 
 # end added by me
 

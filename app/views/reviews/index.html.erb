@@ -13,7 +13,7 @@
                <%= link_to r.reader.readerName, show_reader_path(:reader_id =>r.reader)%> 
           <% end %>
     </td>
-    <td align=center> <%= link_to image_tag(r.picture, :alt=> r.title, class: 'list_image'),r %> </td>
+    <td align=center> <%= link_to image_tag(r.bookcover.url(:small), :alt=> r.title, class: 'list_image'),r %> </td>
     <td class='list_description'>
         <dl>
            <dt> <%= link_to r.title, r %> by <%= r.author %> </dt>

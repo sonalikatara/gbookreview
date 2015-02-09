@@ -77,6 +77,7 @@ config.action_mailer.smtp_settings= {
    enable_starttls_auto: true
 }
 
+Paperclip.options[:command_path] = "/usr/local/bin"
 
 # end added by me
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to

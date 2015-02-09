@@ -23,7 +23,6 @@ class ReviewsController < ApplicationController
 
   def create # creates a new review record
   #  puts review_params
-   #@review = Review.new(review_params)
      @reader= current_reader
      @review = current_reader.review.build(review_params)
    if @review.save
@@ -104,7 +103,7 @@ class ReviewsController < ApplicationController
 
   private
   def review_params
-     params.require(:review).permit( :title, :author, :picture, :rating,:comment)
+     params.require(:review).permit( :title, :author, :picture, :rating,:comment, :bookcover)
   end
 
   def search_review(query)   #searches the records for a query

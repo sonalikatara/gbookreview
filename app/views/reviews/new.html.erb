@@ -1,9 +1,7 @@
-
-
 <h2>Welcome <%= @reader.readerName %>, <br><br>
 Write a review to tell your friends what you think after reading the book.</h2>
 <div align="center">
-<%= form_for @review,:url=>{:action=>'create'} do |f|%>
+<%= form_for @review,:html=>{:multipart =>true}, :url=>{:action=>'create'} do |f|%>
 <% if @review.errors.any? %>
   <div class="field_with_errors">    
       The form contains <%= pluralize(@review.errors.count, "error") %>.   
@@ -24,6 +22,11 @@ Write a review to tell your friends what you think after reading the book.</h2>
     <%= f.label :picture %>
     <%= f.text_field :picture %>
   </p>
+ <p>
+    <%= f.label :bookcover %>
+    <%= f.file_field :bookcover %>
+  </p>
+
    <!-- <%= f.select :rating, [['Not Good',1],['Loved it',2],['Got to Read',3]] %> -->
   <%= render 'reviews/shared_files/review_ratings', f: f %> 
    <p>

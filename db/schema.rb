@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150123213206) do
+ActiveRecord::Schema.define(version: 20150204222910) do
 
   create_table "groups", force: true do |t|
     t.string   "groupName"
@@ -42,6 +42,10 @@ ActiveRecord::Schema.define(version: 20150123213206) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "reader_id"
+    t.string   "bookcover_file_name"
+    t.string   "bookcover_content_type"
+    t.integer  "bookcover_file_size"
+    t.datetime "bookcover_updated_at"
   end
 
   add_index "reviews", ["reader_id"], name: "index_reviews_on_reader_id"

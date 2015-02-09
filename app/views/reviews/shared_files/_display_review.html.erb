@@ -3,8 +3,10 @@
 <p>
     Reader :   <%= link_to review.reader.readerName, show_reader_path(:reader_id =>review.reader)%> </br>
     Title : <b> <%= review.title %> </b> <span class="author"> by  <%= review.author %> </span></br>
-    <b>  <%=  render 'reviews/shared_files/display_review_rating', rating: review.rating %></b> 
-   <img src="<%= review.picture %>"/></br>
+    <b>  <%=  render 'reviews/shared_files/display_review_rating', rating: review.rating %></b>
+   <% if review.bookcover  %> 
+       <%= image_tag review.bookcover.url(:large)%></br>
+   <% end %>
      Review : <b> <%= review.comment %> </b>
 </p>
 </div>
