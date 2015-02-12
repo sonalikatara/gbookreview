@@ -47,6 +47,15 @@ gem 'bcrypt-ruby', '~> 3.1.2'
 # using paperclip for image upload
 gem "paperclip", "~> 4.1"
 
+# using for pagination
+# will_paginate is one of the several pagination solutions in rails
+gem 'will_paginate','3.0.4'
+
+# bootstrap-will_paginate configures will_paginate to use Bootstrap's pagination styles
+gem 'bootstrap-will_paginate', '0.0.9'
+
+#gem 'will_paginate',           '3.0.7'
+#gem 'bootstrap-will_paginate', '0.0.10' 
 # Use unicorn as the app server
 # gem 'unicorn'
 

@@ -1,4 +1,5 @@
 <% r1 = @reviews.first %>
+
 <p>
    <b> Title : </b> <%= r1.title %>
 </p>
@@ -8,8 +9,9 @@
 <p>
    <img src="<%= r1.picture %>"/>
 </p>
-
-
+<div class="apple_pagination">
+<%= will_paginate @reviews, :container => false %> 
+</div>
 <% @reviews.each do |r| %>
 <p>
    <b> Reader : </b> <%= link_to r.reader, show_reader_path(:reader => r.reader)%> 
@@ -18,4 +20,7 @@
    <br> <%= r.comment %>
 </p>
 <% end %>
+<div class="apple_pagination">
+<%= will_paginate @reviews, :container => false %> 
+</div>
 

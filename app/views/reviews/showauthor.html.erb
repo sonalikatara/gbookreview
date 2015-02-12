@@ -2,6 +2,9 @@
 <h2>
   List of Books written by <b><%= r1.author  %></b>
 </h2>
+<div class="apple_pagination">
+<%= will_paginate @reviews, :container => false %> 
+</div>
 
 <% @reviews.each do |r| %>
 <p>
@@ -11,3 +14,7 @@
 </p>
 
 <% end %>
+<div class="apple_pagination">
+<%= will_paginate @reviews, :container => false %> 
+</div>
+

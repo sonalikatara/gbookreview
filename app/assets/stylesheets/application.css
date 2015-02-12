@@ -13,7 +13,7 @@
  *
 */
 html, body { height: 100%; }
-
+/*
 body { background-color: #e6dacf; background-position: top center; background-repeat: repeat-y; font-family: "Trebuchet MS", Arial, san-serif; font-size: 14px; margin: 0; padding: 0; text-align: center; }
 
 a { color: #000; }
@@ -46,3 +46,4 @@ div#footer { background: url('/images/bgFooter.png'); height: 110px; margin: -11
 ul#list {padding: 5px;}
 li#list_description {color: #224; background: #e0f8f8; width: 60%;}
 li#list_action span {text-allign: right; width: 40%;}
+*/

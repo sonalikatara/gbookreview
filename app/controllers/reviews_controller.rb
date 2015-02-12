@@ -4,10 +4,14 @@ class ReviewsController < ApplicationController
 
 
  def index
-    if (params[:search_string])
-      @reviews = search_review(params[:search_string])
+    if params[:search_string]
+       @reviews = search_review(params[:search_string]).paginate(page: params[:page], per_page: 10)
+      #  query =  params[:search_string]
+       #  @reviews = Review.where( "title like ? OR author like ?","%#{query}%", "%#{query}%").paginate(page: params[:page])
+
     else
-      @reviews = Review.all
+   #   @reviews = Review.all
+       @reviews = Review.paginate(:page => params[:page],:per_page => 10)
     end
     if reader_logged_in?
       @reader = current_reader
@@ -40,18 +44,18 @@ class ReviewsController < ApplicationController
 
   def showbook # show a book and all it's reviews
     search_title = params[:title]
-    @reviews = Review.find(:all, :conditions => [ "title = ? ", "#{search_title}" ]) 
+    @reviews = Review.where("title = ? ", "#{search_title}").paginate(page: params[:page], per_page: 4) 
   end
 
   def showreader # show a reader and all the reviews written 
     search_reader = params[:reader_id]
     @reader = Reader.find(search_reader)
-    @reviews = Review.find(:all, :conditions => ["reader_id = ? ", "#{search_reader}"])
+    @reviews = Review.where("reader_id = ? ", "#{search_reader}").paginate(page: params[:page], per_page: 4)
   end
 
   def showauthor # shows a author and list of reviews on his/her books
     search_author = params[:author]
-    @reviews =Review.find(:all, :conditions => ["author = ?", "#{search_author}"])
+    @reviews =Review.where("author = ?", "#{search_author}").paginate(page: params[:page], per_page: 4)
   end
 
   def show  # shows a review by taking an id
@@ -107,9 +111,10 @@ class ReviewsController < ApplicationController
   end
 
   def search_review(query)   #searches the records for a query
-       Review.find(:all, :conditions => ["title like ? OR author like ?","%#{query}%", "%#{query}%"])
-  end
+       #Review.find(:all, :conditions => ["title like ? OR author like ?","%#{query}%", "%#{query}%"]) pagination doesn't work with find so changing to where
+        Review.where( "title like ? OR author like ?","%#{query}%", "%#{query}%").paginate(page: params[:page])
 
+  end
 
 
  end
