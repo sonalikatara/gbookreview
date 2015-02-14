@@ -27,6 +27,7 @@ Gbookreview::Application.configure do
   # config.assets.css_compressor = :sass
 
   # Do not fallback to assets pipeline if a precompiled asset is missed.
+  
   config.assets.compile = false
 
   # Generate digests for assets URLs.
@@ -78,6 +79,10 @@ config.action_mailer.smtp_settings= {
 }
 
 Paperclip.options[:command_path] = "/usr/local/bin"
+
+ config.assets.precompile += %w(*.css *.js)
+
+
 
 # end added by me
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
