@@ -1,0 +1,339 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+
+
+ *
+*/
+
+html, body { height: 100%; }
+/*
+body { background-color: #e6dacf; background-position: top center; background-repeat: repeat-y; font-family: "Trebuchet MS", Arial, san-serif; font-size: 14px; margin: 0; padding: 0; text-align: center; }
+
+a { color: #000; }
+a:hover { background: #000; color: #e6dacf; }
+
+div#wrapper { min-height: 100%; }
+* html div#wrapper { height: 100%; }
+
+div#header { background: url('/images/bgHeader.png'); height: 100px; padding: 8px 0 0 0; }
+div#header div { margin: 0 auto; position: relative; width: 800px; }
+div#header h1 { left: 0; margin: 0; position: absolute; }
+div#header h1 { background: url('/images/logo.png') no-repeat; display: block; height: 0; margin: 0 auto; padding: 92px 0 0 0; overflow: hidden; width: 319px; }
+
+ul#nav { float: right; list-style: none; margin: 0; padding: 69px 0 0 0; }
+ul#nav li { background: #e6dacf; border: solid #000; border-width: 2px 2px 0 2px; float: left; margin: 0 0 0 2px; }
+ul#nav a { display: block; padding: 3px 6px 0 6px; text-decoration: none; }
+ul#nav a:hover { display: block; padding: 3px 6px 7px 6px; }
+ul#nav a.current { padding-bottom: 8px; }
+ul#nav a.current:hover { background: #e6dacf; color: #000; cursor: default; }
+
+div#content{ margin: 0 auto; padding: 20px 0; text-align: left; width: 720px; height: 300px}
+div#content img { border: 10px solid #000; float: right; margin: 18px 0 0 20px; }
+div#content h2 { border: solid #999; border-width: 0 0 5px 0; font-size: 28px; margin: 0; padding: 0 0 10px 0; }
+div#content p { margin: 0; padding: 4px 6px 10px 0; }
+
+
+div#clearfooter { height: 110px; }
+
+div#footer { background: url('/images/bgFooter.png'); height: 110px; margin: -110px auto 0 auto; }
+ul#list {padding: 5px;}
+li#list_description {color: #224; background: #e0f8f8; width: 60%;}
+li#list_action span {text-allign: right; width: 40%;}
+*/
+/* universal */
+html {
+  overflow-y: scroll;
+  margin: 0;
+  font-family: Georgia, serif; }
+
+body {
+  padding-top: 2px;
+  background-color: #f5f5f5; }
+
+section {
+  overflow: auto; }
+
+textarea {
+  resize: vertical; }
+
+.center {
+  text-align: center; }
+
+.center h1 {
+  margin-bottom: 10px; }
+
+/* typography */
+h1, h2, h3, h4, h5, h6 {
+  line-height: 1; }
+
+h1 {
+  font-size: 1.8em;
+  /* letter-spacing: -2px; */
+  margin-bottom: 1px;
+  text-align: center;
+  font-family: verdana; }
+
+h2 {
+  font-size: 1.2em;
+  letter-spacing: -1px;
+  margin-bottom: 30px;
+  text-align: center;
+  font-weight: normal; }
+
+p {
+  font-size: 1.1em;
+  line-height: 1.7em; }
+
+table {
+  margin: 0px;
+  padding: 10px;
+  width: 90%;
+  /*	box-shadow: 10px 10px 5px #888888; */
+  border: 0px solid #000000; }
+
+tr {
+  vertical-align: middle;
+  background-color: #fff;
+  border: 1px solid #000000;
+  border-width: 0px 1px 1px 0px;
+  text-align: left;
+  padding: 9px;
+  font-size: 15px;
+  font-family: Verdana;
+  font-weight: normal;
+  color: #000000; }
+
+td {
+  padding: 7px; }
+
+th {
+  padding: 7px;
+  background-color: #4c4c4c;
+  border: 0px solid #000000;
+  text-align: center;
+  border-width: 0px 0px 1px 1px;
+  font-size: 15px;
+  font-family: Verdana;
+  font-weight: bold;
+  color: #ffffff; }
+
+p, ul {
+  margin: 0;
+  padding: 10px; }
+
+/* error */
+.field_with_errors {
+  border: 1px;
+  padding: 2px;
+  background-color: #9BAED7;
+  display: table; }
+
+/* site */
+div.container {
+  overflow: hidden;
+  padding: 0 20px; }
+
+#wrap {
+  margin: 0 auto;
+  padding: 10px 20px 20px 20px;
+  width: 1080px; }
+
+ul {
+  padding: 10px;
+  list-style-type: none; }
+
+ul li {
+  margin: 0 0 10px 0;
+  padding: 0; }
+
+/* header */
+#header {
+  margin-top: 1px;
+  padding-top: 5px;
+  padding-bottom: 45px;
+  border-bottom: 4px solid #e18a05;
+  background-color: #c0c0c0;
+  height: 0px; }
+
+#header a {
+  color: #333; }
+
+#header a:hover {
+  color: #000; }
+
+#header small {
+  float: right; }
+
+#header ul {
+  float: left;
+  list-style: none; }
+
+#header ul li {
+  float: left;
+  margin-left: 15px; }
+
+/* footer */
+footer {
+  margin-top: 45px;
+  padding-top: 5px;
+  border-top: 1px solid #c0c0c0;
+  color: #777; }
+
+footer a {
+  color: #555; }
+
+footer a:hover {
+  color: #222; }
+
+footer small {
+  padding-top: 5px;
+  float: left; }
+
+footer ul {
+  float: right;
+  list-style: none; }
+
+footer ul li {
+  float: left;
+  margin-left: 15px; }
+
+/* review */
+.author {
+  color: #244; }
+
+/*.reviews {
+   list-style: none;
+   padding: 0;
+  li {
+    padding: 10px 0;
+    boder-top: 1px solid #e8e8e8;
+  }
+  .reader{
+     margin-top: 5em;
+     padding-top: 0;
+  }
+  .content{
+    display: block;
+    margin-left: 60px;
+    img{
+        display: block;
+        padding: 5px 0;
+      }
+  }
+  .timestamp{
+    color: #f7f7f7;
+    display: block;
+    margin-left: 60px; 
+  }
+  .grouppic{
+      float: left;
+      margin-right: 10px;
+      margin-top: 5px;
+   }
+} 
+*/
+#showBooks td {
+  text-align: center;
+  background-color: #f5f5f5; }
+
+.list_table {
+  border-collapse: collapse; }
+
+.list_table th {
+  padding: 7px;
+  background-color: #4c4c4c;
+  border: 0px solid #f5f5f5;
+  text-align: center;
+  border-width: 0px 0px 1px 1px;
+  font-size: 15px;
+  font-family: Verdana;
+  font-weight: bold;
+  color: #ffffff; }
+
+.list_table tr {
+  vertical-align: middle;
+  background-color: #fff;
+  border: 1px solid #f5f5f5;
+  border-width: 0px 1px 1px 0px;
+  text-align: left;
+  padding: 9px;
+  font-size: 15px;
+  font-family: Verdana;
+  font-weight: normal;
+  color: #000000; }
+
+.list_image {
+  width: 80px;
+  height: 100px; }
+
+.list_description {
+  width: 60%; }
+  .list_description dl {
+    margin: 0; }
+  .list_description dt {
+    color: #244;
+    /* font-weight: bold; */
+    font-size: medium; }
+  .list_description dd {
+    margin: 0; }
+
+.list_action {
+  font-size: small;
+  text-align: right;
+  padding-left: 1em; }
+
+.notice {
+  font-size: 1.8em;
+  /* letter-spacing: -2px; */
+  margin-bottom: 30px;
+  text-align: center;
+  font-family: verdana;
+  color: green; }
+
+.apple_pagination {
+  background: #e5e5e5;
+  padding-bottom: 10px;
+  text-align: center;
+  padding: 1em;
+  cursor: default;
+  width: 90%; }
+  .apple_pagination li {
+    list-style: none; }
+
+.apple_pagination a {
+  padding: 0.0em 0.4em; }
+
+.apple_pagination .disabled {
+  color: #aaaaaa; }
+
+.apple_pagination span {
+  vertical-align: middle; }
+
+.apple_pagination .current {
+  font-style: normal;
+  font-weight: bold;
+  background-color: #bebebe;
+  display: inline-block;
+  width: 1.4em;
+  height: 1.4em;
+  line-height: 1.5em;
+  -moz-border-radius: 1em;
+  -webkit-border-radius: 1em;
+  border-radius: 1em;
+  text-shadow: rgba(255, 255, 255, 0.8) 1px 1px 1px; }
+
+.apple_pagination a {
+  float: left;
+  text-decoration: none;
+  color: black; }
+
+.apple_pagination a:hover, .apple_pagination a:focus {
+  text-decoration: underline; }
