@@ -1,7 +1,7 @@
 <h1> Welcome site Admin !!  </h1>
 This form will help you create a New Group. After you have created a Group an email will be sent to the Group Admin Congratulating him/her on the creation of the Group.<br>
-
-<%= form_for @group,:url=>{:action=>'create'} do |f| %>
+ 
+<%= form_for @group, :html => {:multipart => true} ,:url=>{:action=>'create'} do |f| %>
 <% if @group.errors.any? %>
   <div class="field_with_errors">
       The form contains <%= pluralize(@group.errors.count, "error") %>.

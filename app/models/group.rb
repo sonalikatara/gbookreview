@@ -4,6 +4,14 @@ class Group < ActiveRecord::Base
    has_many :reader, dependent: :destroy
 
    has_secure_password
+   has_attached_file :grouppicture, :styles => { :small => "150x150>", :large => "300x300>"},
+                  :url  => "/assets/groups/:id/:style/:basename.:extension",
+                 :path => ":rails_root/public/assets/groups/:id/:style/:basename.:extension" 
+
+   validates_attachment :grouppicture,
+    :presence => true,
+    :size => { :in => 0..10.megabytes },
+    :content_type => { :content_type => /^image\/(jpeg|png|gif|tiff)$/ }
 
  
    validates :picture, :description, presence: true

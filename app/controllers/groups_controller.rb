@@ -62,7 +62,7 @@ end
 private
  
 def group_params
-  params.require(:group).permit(:groupName, :email, :email_confirmation, :password, :password_confirmation, :groupPassword, :groupPassword_confirmation, :picture, :description)
+  params.require(:group).permit(:groupName, :email, :email_confirmation, :password, :password_confirmation, :groupPassword, :groupPassword_confirmation, :picture, :description, :grouppicture)
 end
 
 end

@@ -316,12 +316,13 @@ footer ul li {
 
 .apple_pagination {
   
-  background: #e5e5e5;
+ // background: #e5e5e5;
+
   padding-bottom: 10px;
   text-align: center;
   padding: 1em;
   cursor: default;
-  width: 90%;
+  width: 95%;
   li {  list-style: none;  }
 }
 
@@ -353,7 +354,7 @@ footer ul li {
 .apple_pagination a {
   float: left;
   text-decoration: none;
-  color: black;
+  color: green;
 }
 
 .apple_pagination a:hover, .apple_pagination a:focus {

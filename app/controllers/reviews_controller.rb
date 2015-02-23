@@ -50,7 +50,7 @@ class ReviewsController < ApplicationController
   def showreader # show a reader and all the reviews written 
     search_reader = params[:reader_id]
     @reader = Reader.find(search_reader)
-    @reviews = Review.where("reader_id = ? ", "#{search_reader}").paginate(page: params[:page], per_page: 4)
+    @reviews = Review.where("reader_id = ? ", "#{search_reader}").paginate(page: params[:page], per_page: 2)
   end
 
   def showauthor # shows a author and list of reviews on his/her books

@@ -1,12 +1,14 @@
 
-<h1>  List of books read by  <%= @reader.readerName %>  </h1>
+<h2>  Books read by <b>  <%= @reader.readerName %> </b>  </h2>
 <div class="apple_pagination">
 <%= will_paginate @reviews, :container => false %> 
 </div>
+
 <% @reviews.each do |review| %> 
 <%= render 'reviews/shared_files/display_review', :review => review  %>
 <hr>
 <% end %>
+
 <div class="apple_pagination">
 <%= will_paginate @reviews, :container => false %> 
 </div>

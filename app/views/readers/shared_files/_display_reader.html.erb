@@ -1,5 +1,5 @@
 <li class= 'list_description' >
-   <img src = "<%= reader.picture %>" />
+   <%= image_tag reader.readerpicture.url(:small) %>
   <% if admin_logged_in? %>
        <%= link_to reader.readerName , show_reader_path(:reader_id =>reader.id)%> 
        <%= reader.email %>
