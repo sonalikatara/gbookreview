@@ -1,8 +1,12 @@
 <p text-align=left >
-    <%= image_tag group.grouppicture.url(:large) %> 
+<b><%= group.groupName %></b><br>
+<% if group.grouppicture %>
+    <%= image_tag group.grouppicture.url(:large) %>
+<% end %> 
   <br><small>Created  <%= time_ago_in_words(group.created_at) %> ago.</small>
-  <br><b>About Us </b> 
-  <br><%= group.description %> 
+    <br><%= group.description %>
+<small> 
   <br>Admin Email:  <%= group.email %>     
   <br>Group Password: <%= group.groupPassword %>
+</small>
 </p>
