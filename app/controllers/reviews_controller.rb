@@ -52,7 +52,7 @@ class ReviewsController < ApplicationController
 
 
   def searchbooks  # lists all the books
-    @reviews = Review.all.group("reviews.title")
+    @reviews = Review.select(:title).distinct
     #  Review.find(:all, :conditions => ["title in ?", @reviews])
   end
 
