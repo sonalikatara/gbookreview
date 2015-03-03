@@ -4,7 +4,7 @@
   <% @reviews.in_groups_of(6,false) do |rgroup| %>
   <tr>
       <% rgroup.each do |r| %>
-        <td > <%= link_to image_tag(r.picture, :alt=> r.title,:width =>80,:height =>100), show_book_path(:title => r.title)%>  </td>
+        <td > <%= link_to image_tag(r.bookcover, :alt=> r.title,:width =>80,:height =>100), show_book_path(:title => r.title)%>  </td>
       <% end %>
   </tr>
  <% end %>

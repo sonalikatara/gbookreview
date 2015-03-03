@@ -3,9 +3,11 @@ GroupRequestMail#received
 Dear Admin,
 
 You have a new group request , please confirm the group 
- <%=  @group.groupName %> 
- <%= render '/groups/group', @group %>
-
+ <%=  @group.groupName %>
+  Description :
+   <%= @group.description %> 
+  Admin Email:  <%= @group.email %>     
+  Group Password: <%= @group.groupPassword %>
 
 We will send an automatic email to the Admin once you have created the new group.
 

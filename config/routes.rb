@@ -9,8 +9,8 @@ Gbookreview::Application.routes.draw do
   delete "sessions/destroyReader" => 'sessions#destroyReader', :as => 'reader_logout'
  # resources :reviews
 
-  root 'welcome#index'
- # root 'reviews#searchbooks'
+ # root 'welcome#index'
+  root 'reviews#searchbooks'
  
   get '/reviews/searchbooks' => 'reviews#searchbooks', :as => 'search_books'
   get '/reviews/showbook/:title' => 'reviews#showbook', :as => 'show_book'

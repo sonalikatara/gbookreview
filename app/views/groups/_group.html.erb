@@ -6,7 +6,9 @@
   <br><small>Created  <%= time_ago_in_words(group.created_at) %> ago.</small>
     <br><%= group.description %>
 <small> 
-  <br>Admin Email:  <%= group.email %>     
+  <br>Admin Email:  <%= group.email %>    
+ <% if admin_logged_in? %> 
   <br>Group Password: <%= group.groupPassword %>
+ <% end %>
 </small>
 </p>

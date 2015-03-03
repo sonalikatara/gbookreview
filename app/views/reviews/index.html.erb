@@ -7,7 +7,7 @@
 <table class='list_table'>
  <tr>
      <th width=15%> Reader </th>
-     <th> Image </th>
+     <th> Book Cover</th>
      <th> Review </th>
      <th></th>
  </tr>
@@ -22,10 +22,12 @@
         <dl>
            <dt> <%= link_to r.title, r %> by <%= r.author %> </dt>
            <dd> Rating :<b> <%= r.rating %></b> </dd>
+           <dd> Category : <%= r.category %></dd>
            <dd> <%= r.comment.truncate(140) %> </dd>
+          <dd float:right> <%= link_to 'More..', r %> </dd>
         </dl>
     </td>
-     <td class='list_action'> <%= link_to 'Show', r %> <br/>
+     <td class='list_action'><br/>
         <% if r.reader == @reader  %>
            <%= link_to 'Edit', edit_review_path(r) %> <br/>
            <%= link_to 'Delete', r, method: :delete, data: {confirm: "You Sure ?"}  %>

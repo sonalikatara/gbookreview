@@ -1,4 +1,6 @@
 class GroupsController < ApplicationController
+ # before_action :logged_in_reader, only: [:show]
+
  
 def new
   @group = Group.new

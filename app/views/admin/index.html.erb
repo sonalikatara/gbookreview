@@ -1,6 +1,8 @@
 <h1>Admin</h1>
 <p> <%= render 'groups/group', group: @group %>
 </p>
+<hr style="border-top: dotted 1px;" />
+
 <h2> Readers in this group </h2>
 <div >
   <%= render 'readers/shared_files/display_all_readers', reader: @readers %>

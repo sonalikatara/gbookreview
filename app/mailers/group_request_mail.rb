@@ -22,4 +22,11 @@ class GroupRequestMail < ActionMailer::Base
     @url = "https://shrouded-chamber-4178.herokuapp.com/"
     mail to: @group.email, subject: "Welcome to I Love to Read"    #later change it to @group.email
   end
+
+  def welcomeReader(reader,group)
+     @reader = reader
+     @group = group
+     @url = "https://shrouded-chamber-4178.herokuapp.com/"
+     mail to: @reader.email, subject: "Welcome to I Love to Read"
+ end
 end

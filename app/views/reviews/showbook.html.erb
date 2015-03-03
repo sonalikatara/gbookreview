@@ -7,14 +7,15 @@
    <b> Author : </b> <%= r1.author %>
 </p>
 <p>
-   <img src="<%= r1.picture %>"/>
+     <%= image_tag( r1.bookcover.url(:small), :alt=> r1.title)%> 
+
 </p>
 <div class="apple_pagination">
 <%= will_paginate @reviews, :container => false %> 
 </div>
 <% @reviews.each do |r| %>
 <p>
-   <b> Reader : </b> <%= link_to r.reader, show_reader_path(:reader => r.reader)%> 
+   <b> Reader : </b> <%= link_to r.reader.readerName, show_reader_path(:reader_id => r.reader)%> 
 
    <br><b> Review : </b> <%=  render 'reviews/shared_files/display_review_rating', rating: r.rating %>
    <br> <%= r.comment %>

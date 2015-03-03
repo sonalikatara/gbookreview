@@ -11,6 +11,8 @@ class ReadersController < ApplicationController
       @group = current_admin_group
       @reader = current_admin_group.reader.build(reader_params)
       if @reader.save
+          GroupRequestMail.welcomeReader(@reader,@group).deliver
+
          flash[:sucess] = "Reader created!"
          redirect_to admin_home_url
       else

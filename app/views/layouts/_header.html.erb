@@ -1,22 +1,33 @@
+<div id="headerTop">
+ <ul>
 
+  <% if admin_logged_in? %>
+      <li> <%= link_to "Log out", admin_logout_path, method: "delete" %> </li>
+  <% else %>
+      <% if reader_logged_in? %>
+           <li> <%= link_to "Log out", reader_logout_path, method: "delete" %> </li>
+      <% else %>
+            <li> <%= link_to "Reader Log in", my_group_path %></li>
+      <% end %>
+    <li> <%= link_to "Admin Log in", admin_login_path %></li>
+  <% end %> 
+ </ul> 
+</div>
 <div id="header">
     <ul>
     <li><a href= <%= root_path %> >Home</a></li>
-    <li><a href= <%= reviews_path %> >Reviews</a></li>
-    </ul>
+       </ul>
    <ul>
     <% if admin_logged_in? %>
+       <li><a href= <%= reviews_path %> >Group Reviews</a></li>
       <li> <%= link_to "Group", current_admin %></li>
       <li> <%= link_to "Invite Reader", new_reader_path %> </li>
-       <li> <%= link_to "Log out", admin_logout_path, method: "delete" %> </li>
-    <% else %>
+     <% else %>
         <% if reader_logged_in? %>
+             <li><a href= <%= reviews_path %> >Group Reviews</a></li>
+
            <li><a href= <%= new_review_path %>>New Review</a></li>
-           <li> <%= link_to "Log out", reader_logout_path, method: "delete" %> </li>
-         <% else %>
-            <li> <%= link_to "Reader Log in", my_group_path %></li>
         <% end %>
-        <li> <%= link_to "Admin Log in", admin_login_path %></li>
     <% end %>
    </ul>
   <small>

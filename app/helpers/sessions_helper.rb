@@ -29,6 +29,7 @@ module SessionsHelper
      @current_admin_group = current_admin
   end
 
+
   
 # Returns true if the admin is logged in, false otherwise
    def admin_logged_in?
@@ -58,7 +59,7 @@ module SessionsHelper
   def logged_in_reader
       unless reader_logged_in?
          flash[:alert] = "Please log in as a reader."
-         redirect_tp raeder_login_path
+         redirect_to my_group_path
       end
   end
   #logs out reader

@@ -2,12 +2,14 @@
 <h2>Readers Login</h2>
 <%= form_tag do %>
 <div>
-    <%=@reader.readerName %>
+   Welcome &nbsp;&nbsp; <span class='author'> <%=@reader.readerName %> </span>
 </div>
+<br>
 <div>
 <%= label_tag :groupPassword, 'Group Password:' %>
 <%= password_field_tag :groupPassword, params[:groupPassword] %>
 </div>
+<br>
 <div>
  <%= submit_tag "Take me to my Group Reviews" %>
 </div>

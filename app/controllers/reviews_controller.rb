@@ -2,8 +2,22 @@
 class ReviewsController < ApplicationController
  before_action :logged_in_reader, only: [:create, :destroy]
 
-
  def index
+    if params[:search_string]
+       @reviews = search_review(params[:search_string]).paginate(page: params[:page], per_page: 10)
+    elsif admin_logged_in?
+          @reviews = Review.joins(:reader).where('readers.group_id' => current_admin_group.id).paginate(:page => params[:page],:per_page => 10)
+    else
+   #   @reviews = Review.all
+       @reviews = Review.paginate(:page => params[:page],:per_page => 10)
+    end
+
+    if reader_logged_in?
+      @reader = current_reader
+    end
+  end
+
+ def indexbackup
     if params[:search_string]
        @reviews = search_review(params[:search_string]).paginate(page: params[:page], per_page: 10)
       #  query =  params[:search_string]
@@ -49,8 +63,12 @@ class ReviewsController < ApplicationController
 
   def showreader # show a reader and all the reviews written 
     search_reader = params[:reader_id]
-    @reader = Reader.find(search_reader)
-    @reviews = Review.where("reader_id = ? ", "#{search_reader}").paginate(page: params[:page], per_page: 2)
+     @reader = Reader.find_by(id: search_reader)    
+    if  !(@reader.nil?) 
+       @reviews = Review.where("reader_id = ? ", "#{search_reader}").paginate(page: params[:page], per_page: 2)
+    else
+       redirect_to root_path
+    end
   end
 
   def showauthor # shows a author and list of reviews on his/her books
@@ -107,7 +125,7 @@ class ReviewsController < ApplicationController
 
   private
   def review_params
-     params.require(:review).permit( :title, :author, :picture, :rating,:comment, :bookcover)
+     params.require(:review).permit( :title, :author, :category, :rating,:comment, :bookcover)
   end
 
   def search_review(query)   #searches the records for a query

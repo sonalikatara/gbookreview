@@ -1,8 +1,9 @@
 <li class= 'list_description' >
    <%= image_tag reader.readerpicture.url(:small) %>
   <% if admin_logged_in? %>
-       <%= link_to reader.readerName , show_reader_path(:reader_id =>reader.id)%> 
-       <%= reader.email %>
+       <%= link_to reader.readerName , show_reader_path(:reader_id =>reader.id)%> &nbsp;&nbsp;
+       <%= reader.email %>  &nbsp;&nbsp;
+
        <span class='list_actions'> <%= link_to "Update", edit_reader_path(reader) %>
            <%= link_to "Delete",'#' %> <!-- user, method: :delete, data: {confirm: "You sure?"} %> -->
        </span>
