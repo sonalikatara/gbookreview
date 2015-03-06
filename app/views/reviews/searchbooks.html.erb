@@ -1,13 +1,13 @@
 <h1>Books Read by US</h1>
 
  <table id="showBooks">
-  <% @reviews.in_groups_of(5,false) do |rgroup| %>
+  <% @books.in_groups_of(5,false) do |book| %>
   <tr>
-      <% rgroup.each do |r| %>
+      <% book.each do |b| %>
         <td><ul>
-                <li> <%=  image_tag(r.bookcover, :alt=> "",:width =>80,:height =>100) %> </li>
-                <li> <small><%= r.title %></small></li>
-                <li><%=  render 'reviews/shared_files/display_average_review_rating', rating:  r.average_rating.round.to_s , readers_count: r.readers_count %></li>
+                <li> <%=  image_tag(b.bookcover, :alt=> "",:width =>80,:height =>100) %> </li>
+                <li> <small><%= b.title %></small></li>
+                <li><%=  render 'reviews/shared_files/display_average_review_rating', rating:  b.average_rating.round.to_s , readers_count: b.readers_count %></li>
              </ul>         
          </td>
       <% end %>
