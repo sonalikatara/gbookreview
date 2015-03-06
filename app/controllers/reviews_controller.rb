@@ -42,7 +42,7 @@ class ReviewsController < ApplicationController
 
 
   def searchbooks  # lists all the books
-    @reviews = Review.select("reviews.*, avg(reviews.rating) as average_rating, count(reviews.rating) as readers_count").group("title")
+    @reviews = Review.select("reviews.*, avg(CAST(reviews.rating AS INTEGER)) as average_rating, count(reviews.rating) as readers_count").group("title")
    
     #  Review.find(:all, :conditions => ["title in ?", @reviews])
   end
