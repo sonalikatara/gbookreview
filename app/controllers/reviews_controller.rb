@@ -42,9 +42,9 @@ class ReviewsController < ApplicationController
 
 
   def searchbooks  # lists all the books
-   @books = Review.select("reviews.title, reviews.bookcover_file_name , reviews.bookcover_content_type, reviews.bookcover_file_size, reviews.bookcover_updated_at,reviews.id, avg(CAST(reviews.rating AS INTEGER)) as average_rating, count(reviews.rating) as readers_count").group("title")
-   
-    #  Review.find(:all, :conditions => ["title in ?", @reviews])
+  @books = Review.select("reviews.title, avg(CAST(reviews.rating AS INTEGER)) as average_rating, count(reviews.rating) as readers_count").group("title")
+
+       #  Review.find(:all, :conditions => ["title in ?", @reviews])
   end
 
   def showbook # show a book and all it's reviews
