@@ -2,6 +2,16 @@ class Review < ActiveRecord::Base
 #  before_save { self.picture = "none"}
   belongs_to :reader
   default_scope -> { order('created_at DESC') }
+
+  
+  scope :from_group, ->(group_id) {
+                                     joins(:reader).
+                                    where("group_id = ?", group_id)
+                                  }
+  scope :from_reader, ->(reader_id) { where("reader_id = ?", reader_id)}
+
+  scope :of_book, ->(title) { where("title = ?", title)}
+
   has_attached_file :bookcover, :styles => { :small => "150x150>", :large => "300x300>"},
                   :url  => "/assets/reviews/:id/:style/:basename.:extension",
                  :path => ":rails_root/public/assets/reviews/:id/:style/:basename.:extension" 

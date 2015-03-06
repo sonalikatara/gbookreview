@@ -25,7 +25,7 @@
      <% else %>
         <% if reader_logged_in? %>
              <li><a href= <%= reviews_path %> >Group Reviews</a></li>
-
+             <li><%= link_to "My Reviews",show_reader_path(:reader_id => current_reader.id) %> </li>
            <li><a href= <%= new_review_path %>>New Review</a></li>
         <% end %>
     <% end %>

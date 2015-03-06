@@ -14,8 +14,8 @@ Gbookreview::Application.routes.draw do
  
   get '/reviews/searchbooks' => 'reviews#searchbooks', :as => 'search_books'
   get '/reviews/showbook/:title' => 'reviews#showbook', :as => 'show_book'
-  get '/reviews/showreader/:reader_id' => 'reviews#showreader', :as => 'show_reader'
-  get '/reviews/showauthor/:author' => 'reviews#showauthor', :as => 'show_author'
+  get '/reviews/showreader/:reader_id' => 'reviews#showreader', constraints: {id: /\d+/} ,  :as => 'show_reader'
+  get '/reviews/showauthor/:author' => 'reviews#showauthor', constraints: {id: /\d+/} ,  :as => 'show_author'
   get '/reviews'=> 'reviews#index' , :as => 'reviews'
   post '/reviews' => 'reviews#create'
   get '/reviews/new' => 'reviews#new' , :as => 'new_review'

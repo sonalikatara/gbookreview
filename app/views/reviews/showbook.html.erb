@@ -15,11 +15,13 @@
 </div>
 <% @reviews.each do |r| %>
 <p>
+   <% if r.reader %>
    <b> Reader : </b> <%= link_to r.reader.readerName, show_reader_path(:reader_id => r.reader)%> 
-
-   <br><b> Review : </b> <%=  render 'reviews/shared_files/display_review_rating', rating: r.rating %>
+   <% end %>
+   <br><%=  render 'reviews/shared_files/display_only_review_rating', rating: r.rating %>
    <br> <%= r.comment %>
 </p>
+<hr>
 <% end %>
 <div class="apple_pagination">
 <%= will_paginate @reviews, :container => false %> 

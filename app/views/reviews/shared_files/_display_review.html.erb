@@ -1,20 +1,27 @@
 <!--<div display_review > -->
 <div class='reviews'>
-<p>
-<table   ><tr>
+<table ><tr>
    <td width=30% bgcolor='#F5F5F5' >
    <% if review.bookcover  %> 
        <%= image_tag review.bookcover.url(:large)%></br>
    <% end %>
-</td><td  bgcolor='#F5F5F5'>
-    Reader :   <%= link_to review.reader.readerName, show_reader_path(:reader_id =>review.reader)%> </br>
-    Title : <b> <%= review.title %> </b> <span class="author"> by  <%= review.author %> </span></br>
+</td><td  bgcolor='#F5F5F5' valign=top>
+     <%=  render 'reviews/shared_files/display_only_review_rating', rating: review.rating %> by <%= link_to review.reader.readerName, show_reader_path(:reader_id =>review.reader)%> on <%=(review.created_at).strftime("%B %d %Y") %> </br>  </br>
+    <b> <%= review.title %> </b> <span class="author"> by  <%= review.author %> </span></br>
     Category : <%= review.category %>
-    <b>  <%=  render 'reviews/shared_files/display_review_rating', rating: review.rating %></b>
-</td></tr>
-<tr><td colspan=2 bgcolor='#F5F5F5'>
-     Review : <b> <%= review.comment %> </b>
- </td></tr>
+    </td></tr>
+<tr ><td colspan=2 bgcolor='#F5F5F5' text-align=right >
+    <i> <%= review.comment %> </i>
+   
+    <span >
+        <% if review.reader == @reader  %>
+           <%= link_to 'Edit', edit_review_path(review) %> 
+           <%= link_to 'Delete', review, method: :delete, data: {confirm: "You Sure ?"}  %>
+        <% end %> 
+    </span>
+     </td>
+
+</tr>
 </table>
-</p>
+
 </div>
