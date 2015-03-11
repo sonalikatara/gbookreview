@@ -52,7 +52,7 @@ class ReviewsController < ApplicationController
  #     end 
  
              
-      @books = Review.group(:title).select( " * , AVG(CAST(rating AS INTEGER)) as average_rating , COUNT(reviews.id) as readers_count") 
+      @books = Review.group(:title).select( " reviews.* , AVG(CAST(rating AS INTEGER)) as average_rating , COUNT(reviews.id) as readers_count") 
     
   #  Review.find(:all, :conditions => ["title in ?", @reviews])
 
