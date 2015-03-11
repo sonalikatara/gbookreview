@@ -42,9 +42,21 @@ class ReviewsController < ApplicationController
 
 
   def searchbooks  # lists all the books
-  @books = Review.select("reviews.title, avg(CAST(reviews.rating AS INTEGER)) as average_rating, count(reviews.rating) as readers_count").group("title")
+ 
+   #   books_read = Review.group(:title).avg(CAST(:ratings AS INTERGER)).count(:title).first
+      
+#   @books = Review.all.to_a.uniq{ |review| review.title }
+ #     book_groups = Review.items.group_by(&:title)
+ #     books_group.each do |title,average_rating,readers_count,review|
+       
+ #     end 
+ 
+             
+      @books = Review.group(:title).select( " * , AVG(CAST(rating AS INTEGER)) as average_rating , SUM(id) as readers_count") 
+    
+  #  Review.find(:all, :conditions => ["title in ?", @reviews])
 
-       #  Review.find(:all, :conditions => ["title in ?", @reviews])
+    # @books = Review.group(:title).count(:rating)
   end
 
   def showbook # show a book and all it's reviews
