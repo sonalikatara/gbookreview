@@ -55,7 +55,7 @@ class ReviewsController < ApplicationController
      # @books = Review.group(:title).select( " *, AVG(CAST(rating AS INTEGER)) as average_rating , COUNT(reviews.id) as readers_count").limit(30)  #  Review.find(:all, :conditions => ["title in ?", @reviews])
 
 
-   @books = Review.group(:title).limit(30)
+   @books = Review.limit(30)
      #books_ratings  =  Review.group(:title).select( "  AVG(CAST(rating AS INTEGER)) as average_rating , COUNT(reviews.id) as readers_count")
      # books_details = Review.all.group(:title)
      
