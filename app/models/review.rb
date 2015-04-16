@@ -1,7 +1,7 @@
 class Review < ActiveRecord::Base
 #  before_save { self.picture = "none"}
   belongs_to :reader
-  default_scope -> { order('created_at DESC') }
+#  default_scope -> { order('created_at DESC') }
 
   
   scope :from_group, ->(group_id) {

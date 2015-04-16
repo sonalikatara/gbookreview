@@ -52,10 +52,16 @@ class ReviewsController < ApplicationController
  #     end 
  
              
-      @books = Review.select("DISTINCT(title)").merge(Review.group(:title).select( "  AVG(CAST(rating AS INTEGER)) as average_rating , COUNT(reviews.id) as readers_count"))
-  #  Review.find(:all, :conditions => ["title in ?", @reviews])
+     # @books = Review.group(:title).select( " *, AVG(CAST(rating AS INTEGER)) as average_rating , COUNT(reviews.id) as readers_count").limit(30)  #  Review.find(:all, :conditions => ["title in ?", @reviews])
 
-    # @books = Review.group(:title).count(:rating)
+
+   @books = Review.group(:title).limit(30)
+     #books_ratings  =  Review.group(:title).select( "  AVG(CAST(rating AS INTEGER)) as average_rating , COUNT(reviews.id) as readers_count")
+     # books_details = Review.all.group(:title)
+     
+   #  @books = Review.includes(books_ratings)
+    # @books =books_details.joins(" RIGHT JOIN (SELECT  AVG(CAST(rating AS INTEGER)) as average_rating , COUNT(id) as readers_count FROM reviews GROUP BY title) ON title ")
+     
   end
 
   def showbook # show a book and all it's reviews
