@@ -5,8 +5,8 @@
   <tr>
       <% book.each do |b| %>
         <td><ul>
-                <li>  <%=image_tag(b.bookcover, :alt=> "",:width =>80,:height =>100) %> </li>
-                <li> <small><%= b.title %></small></li>
+                <li>  <%= link_to image_tag(b.bookcover.url(:small), :alt=> '', class: 'list_image'),show_book_path(:title => b.title) %>  </li>
+                <li> <small> <%= link_to b.title, show_book_path(:title => b.title)  %></small></li>
                  
                    <!--  <li> %= render 'reviews/shared_files/display_average_review_rating', rating:  b.average_rating.round.to_s , readers_count: b.readers_count %></li> -->
                  
